@@ -1,0 +1,59 @@
+* spring boot admin UI note
+** dependencies
++ fortawesome for icons extension
++ axios
++ ansi_up     a convert ansi sequence in strings to colourful HTML
++ bulma       a morden flex CSS framework
++ d3
++ event-source-polyfill    receiving push notifications from a server
+  + HTML5 EventSource
+  + onopen	当通往服务器的连接被打开
+  + onmessage	当接收到消息
+  + onerror	当错误发生
++ linkifyjs     covert plantext url to valide url
++ lodash
++ moment
++ moment-shortformat
++ popper.js         a lib to position poppers
++ pretty-bytes      convert byte to human readable string
++ rxjs              Reactive Extensions For JavaScript
++ resize-observer-polyfill
++ yamljs            a javascript yaml parser lib
++ vue-clickaway     Reusable clickaway directive
+** devDependencies
++ css-mqpacker      Pack same CSS media query rules into one using PostCSS
++ autoprefixer
++ cross-env         Run scripts that set and use environment variables across platforms
++ glob              Match files using the patterns the shell uses, like stars and stuff.
++ identity-obj-proxy        An identity object using ES6 proxies
+
+** Webpack Notes
+
+the below plugin will clean the dist directory
+#+BEGIN_SRC javascript
+
+new CleanWebpackPlugin(['dist'], {
+      root: __dirname,
+      verbose: true,
+      dry: false,
+    }),
+
+#+END_SRC
+
+the config below show that the output file name will be sba-core.[ext|js|css|js.map]
+the target output path is ./dist 
+
+#+BEGIN_SRC javascript
+
+entry: {
+    'sba-core': ['babel-polyfill', './src/main.js']
+  },
+  output: {
+    path: resolve(__dirname, './dist'),
+    filename: 'assets/js/[name].js',
+    chunkFilename: 'assets/js/[name].js',
+    publicPath: ''
+  },
+
+#+END_SRC
+
