@@ -1,0 +1,9 @@
+
+@import "~bulma/bulma";
+@import "~bulma-badge/dist/bulma-badge";
+
+html {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
