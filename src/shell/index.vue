@@ -42,10 +42,12 @@
     components: {sbaNavbar},
     computed: {
       mainViews() {
+        // debugger
         return this.views.filter(view => !view.parent);
       },
       activeMainViewName() {
-        const currentView = this.$route.meta.view;
+        // debugger
+        const currentView = this.$route.meta.view || {};
         return currentView.parent || currentView.name;
       },
       childViews() {

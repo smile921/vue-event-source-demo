@@ -1,18 +1,4 @@
-<!--
-  - Copyright 2014-2018 the original author or authors.
-  -
-  - Licensed under the Apache License, Version 2.0 (the "License");
-  - you may not use this file except in compliance with the License.
-  - You may obtain a copy of the License at
-  -
-  -     http://www.apache.org/licenses/LICENSE-2.0
-  -
-  - Unless required by applicable law or agreed to in writing, software
-  - distributed under the License is distributed on an "AS IS" BASIS,
-  - WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  - See the License for the specific language governing permissions and
-  - limitations under the License.
-  -->
+ 
 
 <template>
   <div class="section">
@@ -22,55 +8,20 @@
       <div class="content">
         <p>
           This is an administration UI for Spring Boot applications.
-        </p>
-        <p>
-          To monitor applications, they must be registered at this server. This is either done by including the
-          <a
-            href="https://codecentric.github.io/spring-boot-admin/@project.version@/#register-clients-via-spring-boot-admin">
-            Spring Boot Admin Client
-          </a>
-          or using a
-          <a
-            href="https://codecentric.github.io/spring-boot-admin/@project.version@/#discover-clients-via-spring-cloud-discovery">
-            Spring Cloud Discovery Client
-          </a> implementation.
-        </p>
-        <p>
-          If you have any question please consult the
-          <a href="https://codecentric.github.io/spring-boot-admin/@project.version@">Reference Guide</a>, ask
-          on <a href="https://stackoverflow.com/questions/tagged/spring-boot-admin"> Stack Overflow</a> or
-          have a chat on the <a href="https://gitter.im/codecentric/spring-boot-admin">Gitter</a> channel.
-        </p>
+        </p> 
         <p>
           If you found a bug, want to propose a feature or submit a pull request please use the
           <a href="https://github.com/codecentric/spring-boot-admin/issues">issue tracker</a>.
-        </p>
-        <div class="about-links">
-          <a class="button is-primary is-outlined"
-             :href="`https://codecentric.github.io/spring-boot-admin/${version}`">
-            <font-awesome-icon size="lg" icon="book"/>&nbsp;Reference Guide
-          </a>
-          <a class="button is-black is-outlined" href="https://github.com/codecentric/spring-boot-admin">
-            <font-awesome-icon size="lg" :icon="['fab', 'github']"/>&nbsp;Sources
-          </a>
-          <a class="button is-stackoverflow is-outlined"
-             href="https://stackoverflow.com/questions/tagged/spring-boot-admin">
-            <font-awesome-icon size="lg" :icon="['fab', 'stack-overflow']"/>&nbsp;Stack Overflow
-          </a>
-          <a class="button is-gitter is-outlined" href="https://gitter.im/codecentric/spring-boot-admin">
-            <font-awesome-icon size="lg" :icon="['fab', 'gitter']"/>&nbsp;Gitter
-          </a>
-        </div>
+        </p> 
       </div>
       <h1 class="title is-5">Trademarks and Licenses</h1>
       <div class="content">
         <p>
-          The source code of Spring Boot Admin is licensed under <a
-          href="https://www.apache.org/licenses/LICENSE-2.0">Apache License 2.0</a>.
+          The source code of Spring Boot Admin is licensed under  Apache License 2.0 .
         </p>
         <p>
-          Spring, Spring Boot and Spring Cloud are trademarks of <a href="https://pivotal.io/">Pivotal
-          Software, Inc.</a> in the U.S. and other countries.
+          Spring, Spring Boot and Spring Cloud are trademarks of  Pivotal
+          Software, Inc.  in the U.S. and other countries.
         </p>
       </div>
     </div>
