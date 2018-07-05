@@ -57,3 +57,62 @@ entry: {
 
 #+END_SRC
 
+** RxJs 看起来很有魅力很吸引人
+  少年有时间学习 RxJs 吧，不然要被淘汰了
+*** 一些 RxJs 学习资料
++ [[https://juejin.im/post/5b3ad3666fb9a024f36ffdd5][RxJS实践，Vue如何集成RxJS]]
++ [[https://ithelp.ithome.com.tw/articles/10186104][30天精通 RxJs 系列]]
++ [[https://rxjs-cn.github.io/learn-rxjs-operators/][learn rxjs operators]]
++ [[http://reactivex.io/documentation/][document reactivex]]
++ [[http://reactivex.io/tutorials.html][rx tutorials]]
++ [[https://rxviz.com/][rx visualizer]]
++ [[http://reactive.how/][reactive how]]
++ [[https://gist.github.com/staltz/868e7e9bc2a7b8c1f754][introduce to Reactive Programming you have missing]]
+
+** example RxJs
+let requestStream = Rx.Observable.just('https://api.github.com/users');
+
+requestStream.subscribe(function(requestUrl){
+  //excute the request
+  jQuery.getJSON(requestUrl,function(responseData){
+    //...
+  });
+})
+
+requestStream.subscribe(function(requestUrl){
+  //excute the request
+  let reqsponseStream = Rx.Observable.create(function(observer){
+    jQuery.getJSON(requestUrl).
+    done(function(response){
+      observer.onNext(response);
+    }).fail(function(jqXHR,status,error){
+      observer.onError(error);
+    }).always(function(){
+      observer.onCompleted();
+    })
+  });
+  reqsponseStream.subscribe(function(response){
+    // do something with the response
+  }); 
+})
+
+let responseMetastream = resquestStream.map(function(requestUrl){
+  return Rx.Observable.fromPromise(jQuery.getJSON(requestUrl));
+});
+
+
+let responseStream = requestStream.flatMap(function(requestUrl){
+  return Rx.Observable.fromPromise(jQuery.getJSON(requestUrl));
+});
+
+---- summary----
+let requestStream = Rx.Observable.just('https://api.github.com/users');
+
+let responseStream = resquestStream.flatMap(function(requestUrl){
+  return Rx.Observable.fromPromise(jQuery.getJSON(requestUrl));
+});
+
+responseStream.subscribe(function(response){
+  // render ....
+});
+
