@@ -73,12 +73,14 @@ export default class {
   start() {
     const listing = Observable.defer(() => Application.list()).concatMap(message => message.data);
     const stream = Application.getStream().map(message => message.data);
+    // debugger
     this.subscription = listing.concat(stream)
       .doFirst(() => this._dispatchEvent('connected'))
-      .retryWhen(errors => errors
-        .do(error => this._dispatchEvent('error', error))
-        .delay(5000)
-      ).subscribe({
+      // .retryWhen(errors => errors
+      //   .do(error => this._dispatchEvent('error', error))
+      //   .delay(5000)
+      // )
+      .subscribe({
         next: application => {
           const idx = this.applications.indexOfApplication(application.name);
           if (idx >= 0) {

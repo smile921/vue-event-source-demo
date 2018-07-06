@@ -24,6 +24,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 const LodashModuleReplacementPlugin = require('lodash-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const extractCSS = new ExtractTextPlugin({
@@ -179,6 +180,12 @@ const config = {
       verbose: true,
       dry: false,
     }),
+    // copy custom static assets
+    new CopyWebpackPlugin([{
+      from: resolve(__dirname, './static'),
+      to: resolve(__dirname, './dist'),
+      ignore: ['.*']
+    }]),
     new webpack.DefinePlugin({
       '__PROJECT_VERSION__': `'${process.env.PROJECT_VERSION || ''}'`
     }),

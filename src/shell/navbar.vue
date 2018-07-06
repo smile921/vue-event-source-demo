@@ -71,6 +71,7 @@
     },
     created() {
       /* global SBA */
+      let SBA = undefined;
       if (SBA) {
         if (SBA.uiSettings) {
           this.brand = SBA.uiSettings.brand || this.brand;

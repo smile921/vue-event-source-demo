@@ -18,6 +18,8 @@ const createVNodeIfNecessary = handle => {
   if (typeof handle === 'string') {
     return {
       render() {
+        // debugger
+        // createTextVNode in vue runtime
         return this._v(handle)
       }
     }
