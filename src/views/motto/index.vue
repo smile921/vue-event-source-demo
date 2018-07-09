@@ -1,7 +1,7 @@
 <template>
     <div class="section">
         <div class="container">
-            <h2 class="handwrite">蝴蝶过山门</h2>
+            <h2 class="handwrite">Motto</h2>
             <div class="content">
                 <p class="hand-main">
                  蝴蝶过山门，轻舟过重山。一别两宽，各生欢喜。解冤释结，更莫相憎。

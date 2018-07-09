@@ -47,7 +47,7 @@ const config = {
     publicPath: ''
   },
   resolve: {
-    extensions: ['.js', '.vue'],
+    extensions: ['.js', '.vue','.ts','.tsx','.json'],
     alias: {
       '@': join(__dirname, 'src/'),
       'root': join(__dirname, 'node_modules')
@@ -56,7 +56,16 @@ const config = {
     }
   },
   node: {
-    fs: 'empty'
+    // prevent webpack from injecting useless setImmediate polyfill because Vue
+    // source contains it (although only uses it if it's native).
+    setImmediate: false,
+    // prevent webpack from injecting mocks to Node native modules
+    // that does not make sense for the client
+    dgram: 'empty',
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty',
+    child_process: 'empty'
   },
   module: {
     rules: [
@@ -97,6 +106,14 @@ const config = {
           resolve(__dirname, 'src/'),
           resolve(__dirname, 'node_modules/pretty-bytes')
         ]
+      }, 
+      {
+        test: /\.tsx?$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+        options: {
+          appendTsSuffixTo: [/\.vue$/],
+        }
       },
       {
         test: /\.css$/,

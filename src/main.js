@@ -61,11 +61,11 @@ new Vue({
   created(){
     applicationStore.addEventListener('connected',this.onConnected);
     applicationStore.addEventListener('error',this.onError);
-    applicationStore.start();
+    // applicationStore.start();
   },
   beforeDestroy() {
     applicationStore.removeEventListener('connected', this.onConnected);
     applicationStore.removeEventListener('error',this.onError);
-    applicationStore.stop();
+    // applicationStore.stop();
   },
 });
